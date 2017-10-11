@@ -1,0 +1,179 @@
+// ~->[DNET-1]->~
+
+// File created by an unlicensed user using Netica 6.04 on Oct 11, 2017 at 09:32:07 UTC.
+
+bnet INTSYS_Alzheimers {
+autoupdate = TRUE;
+whenchanged = 1507486296;
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 9;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	ShowLinkStrengths = 1;
+	windowposn = (0, 26, 1378, 711);
+	resolution = 72;
+	drawingbounds = (1515, 744);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0x00e1e1e1;};
+	NodeSet Nature {BuiltIn = 1; Color = 0x00f8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0x00d3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0x00c8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0x00ffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0x00ffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0x00ffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0x00dee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0x00f0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0x00ffffff;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		};
+	};
+
+node sex {
+	discrete = TRUE;
+	states = (male, female);
+	kind = NATURE;
+	parents = ();
+	title = "Sex";
+	whenchanged = 1507212072;
+	visual V1 {
+		center = (120, 48);
+		height = 1;
+		};
+	};
+
+node hand {
+	discrete = TRUE;
+	states = (left, right);
+	kind = NATURE;
+	parents = ();
+	title = "Handedness";
+	whenchanged = 1507212039;
+	visual V1 {
+		center = (330, 48);
+		height = 2;
+		};
+	};
+
+node age {
+	discrete = TRUE;
+	states = (Under25, Over25, Over65);
+	kind = NATURE;
+	parents = ();
+	title = "Age";
+	whenchanged = 1507212025;
+	visual V1 {
+		center = (546, 48);
+		height = 3;
+		};
+	};
+
+node alzheimers {
+	discrete = TRUE;
+	states = (true, false);
+	kind = NATURE;
+	parents = (hand, sex, age);
+	title = "Alzheimers";
+	whenchanged = 1507212251;
+	visual V1 {
+		center = (324, 276);
+		height = 9;
+		};
+	};
+
+node cdr {
+	discrete = TRUE;
+	states = (none, severe, very_mild, mild);
+	kind = NATURE;
+	parents = (alzheimers);
+	title = "Clinical Dementia Rating";
+	whenchanged = 1507212279;
+	visual V1 {
+		center = (372, 420);
+		height = 5;
+		};
+	};
+
+node treat {
+	discrete = TRUE;
+	states = (true, false);
+	kind = NATURE;
+	parents = (alzheimers);
+	title = "Treatment";
+	whenchanged = 1507214078;
+	visual V1 {
+		center = (126, 588);
+		height = 10;
+		};
+	};
+
+node educ {
+	discrete = TRUE;
+	states = (none, primary, secondary, tertiary);
+	kind = NATURE;
+	parents = ();
+	title = "Education Level";
+	whenchanged = 1507210281;
+	visual V1 {
+		center = (750, 60);
+		height = 4;
+		};
+	};
+
+node ses {
+	discrete = TRUE;
+	states = (low, middle, upper);
+	kind = NATURE;
+	parents = ();
+	title = "Socioeconomic Status";
+	whenchanged = 1507210654;
+	visual V1 {
+		center = (960, 66);
+		height = 8;
+		};
+	};
+
+node mmse {
+	discrete = TRUE;
+	states = (none, mild, severe);
+	kind = NATURE;
+	parents = (educ, ses);
+	title = "Mini-Mental State Exam";
+	whenchanged = 1507212627;
+	visual V1 {
+		center = (690, 276);
+		height = 7;
+		};
+	};
+
+node prognosis {
+	discrete = TRUE;
+	states = (better, worse);
+	kind = NATURE;
+	parents = (cdr, mmse);
+	title = "Prognosis";
+	whenchanged = 1507213992;
+	visual V1 {
+		center = (390, 588);
+		height = 6;
+		};
+	};
+
+node mri {
+	discrete = TRUE;
+	states = (true, false);
+	kind = NATURE;
+	parents = (cdr, mmse);
+	title = "MRI Needed";
+	whenchanged = 1507486296;
+	visual V1 {
+		center = (690, 588);
+		height = 11;
+		};
+	};
+};
