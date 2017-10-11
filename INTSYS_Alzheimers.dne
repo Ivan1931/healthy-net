@@ -1,10 +1,10 @@
 // ~->[DNET-1]->~
 
-// File created by an unlicensed user using Netica 6.04 on Oct 11, 2017 at 09:32:07 UTC.
+// File created by an unlicensed user using Netica 6.04 on Oct 11, 2017 at 09:49:29 UTC.
 
 bnet INTSYS_Alzheimers {
 autoupdate = TRUE;
-whenchanged = 1507486296;
+whenchanged = 1507715337;
 
 visual V1 {
 	defdispform = BELIEFBARS;
@@ -42,8 +42,8 @@ node sex {
 	title = "Sex";
 	whenchanged = 1507212072;
 	visual V1 {
-		center = (120, 48);
-		height = 1;
+		center = (192, 48);
+		height = 4;
 		};
 	};
 
@@ -56,7 +56,7 @@ node hand {
 	whenchanged = 1507212039;
 	visual V1 {
 		center = (330, 48);
-		height = 2;
+		height = 1;
 		};
 	};
 
@@ -68,8 +68,8 @@ node age {
 	title = "Age";
 	whenchanged = 1507212025;
 	visual V1 {
-		center = (546, 48);
-		height = 3;
+		center = (474, 54);
+		height = 5;
 		};
 	};
 
@@ -81,8 +81,8 @@ node alzheimers {
 	title = "Alzheimers";
 	whenchanged = 1507212251;
 	visual V1 {
-		center = (324, 276);
-		height = 9;
+		center = (330, 324);
+		height = 7;
 		};
 	};
 
@@ -94,8 +94,8 @@ node cdr {
 	title = "Clinical Dementia Rating";
 	whenchanged = 1507212279;
 	visual V1 {
-		center = (372, 420);
-		height = 5;
+		center = (516, 456);
+		height = 2;
 		};
 	};
 
@@ -107,21 +107,8 @@ node treat {
 	title = "Treatment";
 	whenchanged = 1507214078;
 	visual V1 {
-		center = (126, 588);
-		height = 10;
-		};
-	};
-
-node educ {
-	discrete = TRUE;
-	states = (none, primary, secondary, tertiary);
-	kind = NATURE;
-	parents = ();
-	title = "Education Level";
-	whenchanged = 1507210281;
-	visual V1 {
-		center = (750, 60);
-		height = 4;
+		center = (330, 444);
+		height = 6;
 		};
 	};
 
@@ -133,8 +120,21 @@ node ses {
 	title = "Socioeconomic Status";
 	whenchanged = 1507210654;
 	visual V1 {
-		center = (960, 66);
+		center = (732, 48);
 		height = 8;
+		};
+	};
+
+node educ {
+	discrete = TRUE;
+	states = (none, primary, secondary, tertiary);
+	kind = NATURE;
+	parents = (ses);
+	title = "Education Level";
+	whenchanged = 1507714644;
+	visual V1 {
+		center = (732, 186);
+		height = 10;
 		};
 	};
 
@@ -142,12 +142,12 @@ node mmse {
 	discrete = TRUE;
 	states = (none, mild, severe);
 	kind = NATURE;
-	parents = (educ, ses);
+	parents = (educ, alzheimers);
 	title = "Mini-Mental State Exam";
-	whenchanged = 1507212627;
+	whenchanged = 1507714822;
 	visual V1 {
-		center = (690, 276);
-		height = 7;
+		center = (732, 324);
+		height = 9;
 		};
 	};
 
@@ -159,20 +159,20 @@ node prognosis {
 	title = "Prognosis";
 	whenchanged = 1507213992;
 	visual V1 {
-		center = (390, 588);
-		height = 6;
+		center = (516, 606);
+		height = 3;
 		};
 	};
 
-node mri {
+node ConductMRI {
 	discrete = TRUE;
 	states = (true, false);
-	kind = NATURE;
-	parents = (cdr, mmse);
-	title = "MRI Needed";
-	whenchanged = 1507486296;
+	kind = DECISION;
+	parents = (mmse, cdr);
+	title = "Conduct MRI";
+	whenchanged = 1507715337;
 	visual V1 {
-		center = (690, 588);
+		center = (732, 456);
 		height = 11;
 		};
 	};
