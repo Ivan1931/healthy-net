@@ -1,10 +1,11 @@
 // ~->[DNET-1]->~
 
-// File created by an unlicensed user using Netica 6.04 on Oct 13, 2017 at 14:31:42 UTC.
+// File created by an unlicensed user using Netica 6.04 on Oct 14, 2017 at 14:09:36 UTC.
 
 bnet INTSYS_Alzheimers {
+AutoCompile = TRUE;
 autoupdate = TRUE;
-whenchanged = 1507905051;
+whenchanged = 1507988021;
 
 visual V1 {
 	defdispform = BELIEFBARS;
@@ -14,6 +15,7 @@ visual V1 {
 	linkfont = font {shape= "Arial"; size= 9;};
 	ShowLinkStrengths = 1;
 	windowposn = (0, 26, 1378, 711);
+	scrollposn = (0, 1);
 	resolution = 72;
 	drawingbounds = (2241, 834);
 	showpagebreaks = FALSE;
@@ -38,9 +40,15 @@ node sex {
 	discrete = TRUE;
 	states = (male, female);
 	kind = NATURE;
+	chance = CHANCE;
 	parents = ();
+	probs = 
+		// male         female       
+		  (0.4016393,   0.5983607);
+	numcases = 122;
 	title = "Sex";
-	whenchanged = 1507212072;
+	whenchanged = 1507985331;
+	belief = (0.4016393, 0.5983607);
 	visual V1 {
 		center = (132, 78);
 		height = 3;
@@ -51,9 +59,15 @@ node hand {
 	discrete = TRUE;
 	states = (left, right);
 	kind = NATURE;
+	chance = CHANCE;
 	parents = ();
+	probs = 
+		// left         right        
+		  (0.008196721, 0.9918033);
+	numcases = 122;
 	title = "Handedness";
-	whenchanged = 1507212039;
+	whenchanged = 1507988010;
+	belief = (0.00819672, 0.9918033);
 	visual V1 {
 		center = (366, 60);
 		height = 2;
@@ -64,9 +78,15 @@ node age {
 	discrete = TRUE;
 	states = (Under25, Over25, Over65);
 	kind = NATURE;
+	chance = CHANCE;
 	parents = ();
+	probs = 
+		// Under25      Over25       Over65       
+		  (0.008130081, 0.08943089,  0.902439);
+	numcases = 123;
 	title = "Age";
-	whenchanged = 1507212025;
+	whenchanged = 1507988009;
+	belief = (0.008130082, 0.0894309, 0.902439);
 	visual V1 {
 		center = (528, 60);
 		height = 1;
@@ -77,9 +97,39 @@ node alzheimers {
 	discrete = TRUE;
 	states = (true, false);
 	kind = NATURE;
+	chance = CHANCE;
 	parents = (hand, sex, age);
+	probs = 
+		// true         false         // hand  sex    age     
+		  (0.5,         0.5,          // left  male   Under25 
+		   0.5,         0.5,          // left  male   Over25  
+		   0.5,         0.5,          // left  male   Over65  
+		   0.5,         0.5,          // left  female Under25 
+		   0.5,         0.5,          // left  female Over25  
+		   0.5,         0.5,          // left  female Over65  
+		   0.5,         0.5,          // right male   Under25 
+		   0.6666667,   0.3333333,    // right male   Over25  
+		   0.5813953,   0.4186046,    // right male   Over65  
+		   0.5,         0.5,          // right female Under25 
+		   0.1428571,   0.8571429,    // right female Over25  
+		   0.3898305,   0.6101695);   // right female Over65  ;
+	numcases = 
+		                 // hand  sex    age     
+		  (2,            // left  male   Under25 
+		   2,            // left  male   Over25  
+		   2,            // left  male   Over65  
+		   2,            // left  female Under25 
+		   2,            // left  female Over25  
+		   2,            // left  female Over65  
+		   2,            // right male   Under25 
+		   6,            // right male   Over25  
+		   43,           // right male   Over65  
+		   2,            // right female Under25 
+		   7,            // right female Over25  
+		   59);          // right female Over65  ;
 	title = "Alzheimers";
-	whenchanged = 1507212251;
+	whenchanged = 1507987919;
+	belief = (0.4572409, 0.5427591);
 	visual V1 {
 		center = (300, 330);
 		height = 5;
@@ -90,9 +140,19 @@ node cdr {
 	discrete = TRUE;
 	states = (none, severe, very_mild, mild);
 	kind = NATURE;
+	chance = CHANCE;
 	parents = (alzheimers);
+	probs = 
+		// none         severe       very mild    mild          // alzheimers 
+		  (0.01886792,  0.01886792,  0.7735849,   0.1886792,    // true       
+		   0.9516129,   0.01612903,  0.01612903,  0.01612903);  // false      ;
+	numcases = 
+		                 // alzheimers 
+		  (53,           // true       
+		   62);          // false      ;
 	title = "Clinical Dementia Rating";
-	whenchanged = 1507212279;
+	whenchanged = 1507988021;
+	belief = (0.5251238, 0.01738136, 0.3624688, 0.09502605);
 	visual V1 {
 		center = (444, 510);
 		height = 11;
@@ -106,6 +166,7 @@ node treat {
 	parents = (alzheimers);
 	title = "Treatment";
 	whenchanged = 1507214078;
+	belief = (0.5, 0.5);
 	visual V1 {
 		center = (264, 510);
 		height = 8;
@@ -116,9 +177,15 @@ node ses {
 	discrete = TRUE;
 	states = (low, middle, upper);
 	kind = NATURE;
+	chance = CHANCE;
 	parents = ();
+	probs = 
+		// low          middle       upper        
+		  (0.220339,    0.5169492,   0.2627119);
+	numcases = 118;
 	title = "Socioeconomic Status";
-	whenchanged = 1507210654;
+	whenchanged = 1507985331;
+	belief = (0.220339, 0.5169492, 0.2627119);
 	visual V1 {
 		center = (804, 66);
 		height = 4;
@@ -129,9 +196,21 @@ node educ {
 	discrete = TRUE;
 	states = (none, primary, secondary, tertiary);
 	kind = NATURE;
+	chance = CHANCE;
 	parents = (ses);
+	probs = 
+		// none         primary      secondary    tertiary      // ses    
+		  (0.03448276,  0.03448276,  0.03448276,  0.8965517,    // low    
+		   0.015625,    0.015625,    0.265625,    0.703125,     // middle 
+		   0.02941176,  0.1764706,   0.6470588,   0.1470588);   // upper  ;
+	numcases = 
+		                 // ses    
+		  (29,           // low    
+		   64,           // middle 
+		   34);          // upper  ;
 	title = "Education Level";
-	whenchanged = 1507714644;
+	whenchanged = 1507985331;
+	belief = (0.02340205, 0.06203615, 0.3149025, 0.5996593);
 	visual V1 {
 		center = (756, 210);
 		height = 6;
@@ -142,9 +221,31 @@ node mmse {
 	discrete = TRUE;
 	states = (none, mild, severe);
 	kind = NATURE;
+	chance = CHANCE;
 	parents = (educ, alzheimers);
+	probs = 
+		// none         mild         severe        // educ      alzheimers 
+		  (0.3333333,   0.3333333,   0.3333333,    // none      true       
+		   0.3333333,   0.3333333,   0.3333333,    // none      false      
+		   0.2857143,   0.1428571,   0.5714286,    // primary   true       
+		   0.25,        0.25,        0.5,          // primary   false      
+		   0.36,        0.04,        0.6,          // secondary true       
+		   0.05555556,  0.05555556,  0.8888889,    // secondary false      
+		   0.2692308,   0.03846154,  0.6923077,    // tertiary  true       
+		   0.02222222,  0.02222222,  0.9555556);   // tertiary  false      ;
+	numcases = 
+		                 // educ      alzheimers 
+		  (3,            // none      true       
+		   3,            // none      false      
+		   7,            // primary   true       
+		   4,            // primary   false      
+		   25,           // secondary true       
+		   18,           // secondary false      
+		   26,           // tertiary  true       
+		   45);          // tertiary  false      ;
 	title = "Mini-Mental State Exam";
-	whenchanged = 1507714822;
+	whenchanged = 1507987998;
+	belief = (0.1667059, 0.05330376, 0.7799903);
 	visual V1 {
 		center = (726, 354);
 		height = 7;
@@ -155,9 +256,25 @@ node ConductMRI {
 	discrete = TRUE;
 	states = (true, false);
 	kind = DECISION;
+	chance = DETERMIN;
 	parents = (mmse, cdr);
+	functable = 
+		                    // mmse   cdr       
+		  (false,           // none   none      
+		   true,            // none   severe    
+		   true,            // none   very mild 
+		   true,            // none   mild      
+		   false,           // mild   none      
+		   true,            // mild   severe    
+		   true,            // mild   very mild 
+		   true,            // mild   mild      
+		   false,           // severe none      
+		   true,            // severe severe    
+		   true,            // severe very mild 
+		   true);           // severe mild      ;
 	title = "Conduct MRI";
-	whenchanged = 1507715337;
+	whenchanged = 1507987885;
+	belief = (0, 1);
 	visual V1 {
 		center = (822, 480);
 		height = 9;
@@ -190,9 +307,11 @@ node prognosis {
 	parents = (cdr, mmse);
 	title = "Prognosis";
 	whenchanged = 1507213992;
+	belief = (0.5, 0.5);
 	visual V1 {
 		center = (528, 636);
 		height = 12;
 		};
 	};
+ElimOrder = (treat, ses, sex, hand, age, educ, prognosis, alzheimers, ConductMRI, cdr, mmse);
 };
