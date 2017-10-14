@@ -1,10 +1,10 @@
 // ~->[DNET-1]->~
 
-// File created by an unlicensed user using Netica 6.04 on Oct 13, 2017 at 14:28:44 UTC.
+// File created by an unlicensed user using Netica 6.04 on Oct 13, 2017 at 14:31:42 UTC.
 
 bnet INTSYS_Alzheimers {
 autoupdate = TRUE;
-whenchanged = 1507904751;
+whenchanged = 1507905051;
 
 visual V1 {
 	defdispform = BELIEFBARS;
@@ -15,7 +15,7 @@ visual V1 {
 	ShowLinkStrengths = 1;
 	windowposn = (0, 26, 1378, 711);
 	resolution = 72;
-	drawingbounds = (1578, 833);
+	drawingbounds = (2241, 834);
 	showpagebreaks = FALSE;
 	usegrid = TRUE;
 	gridspace = (6, 6);
@@ -173,10 +173,10 @@ node U {
 	functable = 
 		                 // ConductMRI alzheimers 
 		  (100,          // true       true       
-		   -50,          // true       false      
-		   70,           // false      true       
+		   -30,          // true       false      
+		   -60,          // false      true       
 		   30);          // false      false      ;
-	whenchanged = 1507904751;
+	whenchanged = 1507905051;
 	visual V1 {
 		center = (834, 630);
 		height = 10;
