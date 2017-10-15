@@ -106,7 +106,7 @@ def transformHand(val):
 #This is needed for Neticas format for some reason
 HEADER_LINE = "// ~->[CASE-1]->~\n"
 
-COLUMN_HEADINGS = "IDnum\talzheimers\tsex\thand\tage\teduc\tses\tmmse\tcdr\n"
+COLUMN_HEADINGS = "IDnum\talzheimers\tsex\thand\tage\teduc\tses\tmmse\tcdr\tMRINeeded\n"
 
 cases = []
 
@@ -138,10 +138,11 @@ for i in range(0,num_cases):
     temp.append(transformSES(cases[i][9]))
     temp.append(transformMMSE(cases[i][10]))
     temp.append(transformCDR(cases[i][11]))
+    temp.append(transformAlzheimers(cases[i][2]))
     new_cases.append(temp)
 
 #Write to case file
-with open('training.casefile', 'w') as outfile:
+with open('training.cas', 'w') as outfile:
     outfile.write(HEADER_LINE)
     outfile.write(COLUMN_HEADINGS)
     for i in range(0,floor(num_cases*0.8)):
@@ -151,7 +152,7 @@ with open('training.casefile', 'w') as outfile:
         case_str = str(i+1) + "\t" + case_str +"\n"
         outfile.write(case_str)
 
-with open('testing.casefile', 'w') as outfile:
+with open('testing.cas', 'w') as outfile:
     outfile.write(HEADER_LINE)
     outfile.write(COLUMN_HEADINGS)
     for i in range(ceil(num_cases*0.8),num_cases):

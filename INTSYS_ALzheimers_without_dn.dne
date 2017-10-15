@@ -1,11 +1,11 @@
 // ~->[DNET-1]->~
 
-// File created by an unlicensed user using Netica 6.04 on Oct 15, 2017 at 13:35:43 UTC.
+// File created by an unlicensed user using Netica 6.04 on Oct 15, 2017 at 13:35:48 UTC.
 
 bnet INTSYS_Alzheimers {
 AutoCompile = TRUE;
 autoupdate = TRUE;
-whenchanged = 1508057232;
+whenchanged = 1508059346;
 
 visual V1 {
 	defdispform = BELIEFBARS;
@@ -14,9 +14,9 @@ visual V1 {
 	nodefont = font {shape= "Arial"; size= 9;};
 	linkfont = font {shape= "Arial"; size= 9;};
 	ShowLinkStrengths = 1;
-	windowposn = (0, 26, 693, 711);
+	windowposn = (752, 3, 1466, 688);
 	resolution = 72;
-	drawingbounds = (2241, 834);
+	drawingbounds = (1578, 834);
 	showpagebreaks = FALSE;
 	usegrid = TRUE;
 	gridspace = (6, 6);
@@ -46,11 +46,11 @@ node sex {
 		  (0.4016393,   0.5983607);
 	numcases = 122;
 	title = "Sex";
-	whenchanged = 1508057046;
+	whenchanged = 1507994407;
 	belief = (0.4016393, 0.5983607);
 	visual V1 {
-		center = (108, 330);
-		height = 7;
+		center = (138, 288);
+		height = 8;
 		};
 	};
 
@@ -65,11 +65,11 @@ node hand {
 		  (0.008196721, 0.9918033);
 	numcases = 122;
 	title = "Handedness";
-	whenchanged = 1508057046;
-	belief = (0.00819672, 0.9918033);
+	whenchanged = 1507994925;
+	belief = (0.008196721, 0.9918033);
 	visual V1 {
-		center = (300, 90);
-		height = 5;
+		center = (336, 156);
+		height = 6;
 		};
 	};
 
@@ -84,11 +84,11 @@ node age {
 		  (0.008130081, 0.08943089,  0.902439);
 	numcases = 123;
 	title = "Age";
-	whenchanged = 1508057051;
+	whenchanged = 1507994938;
 	belief = (0.008130082, 0.0894309, 0.902439);
 	visual V1 {
-		center = (468, 96);
-		height = 6;
+		center = (546, 162);
+		height = 7;
 		};
 	};
 
@@ -127,11 +127,11 @@ node alzheimers {
 		   7,            // right female Over25  
 		   59);          // right female Over65  ;
 	title = "Alzheimers";
-	whenchanged = 1508057232;
-	belief = (0.4572409, 0.5427591);
+	whenchanged = 1508059346;
+	belief = (0.4572408, 0.5427592);
 	visual V1 {
-		center = (300, 330);
-		height = 9;
+		center = (336, 288);
+		height = 4;
 		};
 	};
 
@@ -150,11 +150,11 @@ node cdr {
 		  (53,           // true       
 		   62);          // false      ;
 	title = "Clinical Dementia Rating";
-	whenchanged = 1508057220;
-	belief = (0.5251238, 0.01738136, 0.3624688, 0.09502605);
+	whenchanged = 1507994407;
+	belief = (0.5251238, 0.01738136, 0.3624688, 0.09502602);
 	visual V1 {
-		center = (300, 522);
-		height = 1;
+		center = (336, 438);
+		height = 5;
 		};
 	};
 
@@ -169,11 +169,11 @@ node ses {
 		  (0.220339,    0.5169492,   0.2627119);
 	numcases = 118;
 	title = "Socioeconomic Status";
-	whenchanged = 1508057046;
-	belief = (0.220339, 0.5169492, 0.2627119);
+	whenchanged = 1507994407;
+	belief = (0.220339, 0.5169491, 0.2627119);
 	visual V1 {
-		center = (726, 72);
-		height = 4;
+		center = (774, 48);
+		height = 2;
 		};
 	};
 
@@ -194,11 +194,11 @@ node educ {
 		   64,           // middle 
 		   34);          // upper  ;
 	title = "Education Level";
-	whenchanged = 1508057046;
-	belief = (0.02340205, 0.06203615, 0.3149025, 0.5996593);
+	whenchanged = 1507994407;
+	belief = (0.02340204, 0.06203615, 0.3149025, 0.5996593);
 	visual V1 {
-		center = (726, 216);
-		height = 8;
+		center = (774, 168);
+		height = 1;
 		};
 	};
 
@@ -229,60 +229,12 @@ node mmse {
 		   26,           // tertiary  true       
 		   45);          // tertiary  false      ;
 	title = "Mini-Mental State Exam";
-	whenchanged = 1508057221;
+	whenchanged = 1507994407;
 	belief = (0.1667059, 0.05330376, 0.7799903);
 	visual V1 {
-		center = (726, 330);
+		center = (774, 288);
 		height = 3;
 		};
 	};
-
-node ConductMRI {
-	discrete = TRUE;
-	states = (true, false);
-	kind = DECISION;
-	chance = DETERMIN;
-	parents = (mmse, cdr);
-	functable = 
-		                    // mmse   cdr       
-		  (false,           // none   none      
-		   true,            // none   severe    
-		   true,            // none   very mild 
-		   true,            // none   mild      
-		   false,           // mild   none      
-		   true,            // mild   severe    
-		   true,            // mild   very mild 
-		   true,            // mild   mild      
-		   false,           // severe none      
-		   true,            // severe severe    
-		   true,            // severe very mild 
-		   true);           // severe mild      ;
-	title = "Conduct MRI";
-	whenchanged = 1508057194;
-	belief = (1, 0);
-	visual V1 {
-		center = (726, 522);
-		height = 2;
-		};
-	};
-
-node U {
-	discrete = FALSE;
-	measure = RATIO;
-	kind = UTILITY;
-	chance = DETERMIN;
-	parents = (ConductMRI, alzheimers);
-	functable = 
-		                 // ConductMRI alzheimers 
-		  (10,           // true       true       
-		   -3,           // true       false      
-		   -6,           // false      true       
-		   7);           // false      false      ;
-	whenchanged = 1508057185;
-	visual V1 {
-		center = (522, 432);
-		height = 10;
-		};
-	};
-ElimOrder = (ses, sex, hand, age, educ, alzheimers, ConductMRI, cdr, mmse);
+ElimOrder = (cdr, ses, sex, hand, age, alzheimers, educ, mmse);
 };

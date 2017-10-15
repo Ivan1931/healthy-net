@@ -1,122 +1,122 @@
 // ~->[CASE-1]->~
-IDnum	alzheimers	sex	hand	age	educ	ses	mmse	cdr
-1	false	male	right	over65	tertiary	middle	severe	none
-2	true	male	right	over65	secondary	*	none	very_mild
-3	false	female	right	over65	tertiary	middle	severe	none
-4	false	male	right	over65	secondary	upper	severe	none
-5	true	male	right	over65	tertiary	*	severe	very_mild
-6	false	female	right	over65	tertiary	middle	severe	none
-7	true	male	right	over65	secondary	middle	severe	very_mild
-8	true	female	right	over65	secondary	middle	severe	very_mild
-9	false	female	right	over65	tertiary	middle	severe	none
-10	false	female	right	over65	secondary	upper	severe	none
-11	true	male	right	over65	tertiary	middle	none	very_mild
-12	true	male	right	over65	primary	upper	severe	very_mild
-13	false	male	right	over65	secondary	middle	severe	none
-14	*	female	right	over65	tertiary	low	severe	none
-15	*	male	right	over65	tertiary	low	severe	none
-16	true	male	right	over65	tertiary	low	severe	very_mild
-17	false	female	right	over25	tertiary	middle	severe	none
-18	true	female	right	over65	secondary	upper	none	very_mild
-19	true	male	right	over65	secondary	middle	severe	very_mild
-20	false	female	right	over65	secondary	middle	severe	none
-21	true	male	right	over25	tertiary	middle	none	very_mild
-22	false	female	right	over65	secondary	upper	severe	none
-23	false	female	right	over25	tertiary	low	severe	none
-24	*	female	right	over65	secondary	middle	severe	none
-25	true	male	right	over65	secondary	middle	none	very_mild
-26	false	female	right	over65	tertiary	low	severe	none
-27	false	female	right	over65	secondary	upper	severe	none
-28	false	female	right	over65	tertiary	upper	severe	none
-29	true	male	right	over65	secondary	upper	severe	very_mild
-30	true	female	right	over65	tertiary	middle	severe	very_mild
-31	true	male	right	over65	primary	upper	severe	very_mild
-32	*	female	right	over65	tertiary	low	severe	none
-33	false	female	right	over65	tertiary	middle	severe	none
-34	true	female	right	over65	secondary	upper	severe	very_mild
-35	true	male	right	over65	tertiary	upper	none	mild
-36	false	female	right	over65	tertiary	low	severe	none
-37	true	female	right	over65	tertiary	middle	none	very_mild
-38	false	female	right	over65	tertiary	middle	severe	none
-39	true	male	right	over65	tertiary	low	none	mild
-40	false	female	right	over65	tertiary	middle	severe	none
-41	true	male	right	over65	secondary	upper	none	very_mild
-42	false	female	right	over65	tertiary	low	severe	none
-43	false	male	right	over65	tertiary	middle	severe	none
-44	false	female	right	over65	tertiary	middle	severe	none
-45	*	female	right	over65	tertiary	low	severe	none
-46	false	male	right	over25	tertiary	middle	severe	none
-47	false	female	right	over65	tertiary	middle	severe	none
-48	false	female	right	over65	secondary	middle	severe	none
-49	true	male	right	over65	tertiary	middle	severe	very_mild
-50	true	male	right	over65	tertiary	upper	severe	very_mild
-51	false	male	right	over65	tertiary	low	severe	none
-52	false	female	right	over65	tertiary	middle	severe	none
-53	true	female	right	over65	secondary	*	severe	very_mild
-54	true	female	right	over65	primary	upper	none	mild
-55	true	male	right	over25	tertiary	low	severe	mild
-56	false	male	right	over65	secondary	upper	severe	none
-57	false	female	right	over65	secondary	middle	severe	none
-58	false	female	right	over65	tertiary	middle	severe	none
-59	false	male	right	over65	tertiary	low	severe	none
-60	true	female	right	over65	tertiary	middle	severe	mild
-61	false	female	right	over65	tertiary	middle	severe	none
-62	true	female	right	over65	primary	upper	severe	very_mild
-63	false	female	right	over65	tertiary	middle	severe	none
-64	false	male	right	over65	tertiary	middle	severe	none
-65	false	male	right	over65	tertiary	low	severe	none
-66	true	female	right	over65	secondary	upper	none	very_mild
-67	true	male	right	over65	tertiary	middle	severe	very_mild
-68	true	female	right	over65	secondary	upper	severe	very_mild
-69	false	female	right	over65	primary	upper	severe	none
-70	false	female	right	over25	tertiary	middle	severe	none
-71	true	female	right	over65	tertiary	low	severe	mild
-72	true	male	right	over65	secondary	upper	none	mild
-73	true	male	right	over65	secondary	middle	severe	very_mild
-74	false	male	right	over65	tertiary	middle	severe	none
-75	false	male	right	over65	secondary	upper	severe	none
-76	*	female	right	over65	secondary	middle	severe	none
-77	false	female	right	over25	tertiary	low	severe	none
-78	false	male	right	over65	tertiary	low	severe	none
-79	false	female	right	over65	tertiary	middle	severe	none
-80	false	male	right	over65	tertiary	middle	severe	none
-81	true	male	right	over65	secondary	upper	severe	very_mild
-82	true	female	right	over65	secondary	*	severe	very_mild
-83	false	female	right	over65	secondary	upper	severe	none
-84	false	female	right	over65	tertiary	middle	severe	none
-85	true	male	right	over65	tertiary	middle	severe	very_mild
-86	*	female	right	over65	tertiary	low	severe	none
-87	true	male	right	over65	tertiary	low	severe	very_mild
-88	false	male	right	over65	secondary	upper	severe	none
-89	true	female	right	over65	secondary	upper	none	mild
-90	true	male	right	over65	tertiary	low	severe	very_mild
-91	false	male	right	over65	secondary	upper	severe	none
-92	true	male	right	over25	secondary	upper	none	very_mild
-93	true	female	right	over65	secondary	middle	severe	very_mild
-94	true	female	right	over65	tertiary	middle	none	very_mild
-95	true	female	right	over65	secondary	*	severe	very_mild
-96	true	female	right	over65	secondary	middle	severe	very_mild
-97	false	male	right	over65	tertiary	middle	severe	none
-98	*	female	right	over65	tertiary	upper	severe	none
-99	false	female	right	over65	tertiary	middle	severe	none
-100	true	female	right	over65	tertiary	middle	severe	mild
-101	false	female	right	over65	secondary	upper	severe	none
-102	false	female	right	over65	tertiary	middle	severe	none
-103	true	male	right	over65	tertiary	middle	severe	very_mild
-104	false	female	right	over65	secondary	middle	severe	none
-105	*	male	right	over65	tertiary	low	severe	none
-106	false	female	right	over65	tertiary	low	severe	none
-107	false	female	right	over65	tertiary	low	severe	none
-108	*	female	right	over25	secondary	middle	severe	very_mild
-109	*	female	right	over65	secondary	middle	severe	none
-110	true	female	right	over65	secondary	upper	severe	very_mild
-111	false	male	right	over65	tertiary	middle	severe	none
-112	true	male	right	over65	tertiary	middle	severe	very_mild
-113	false	female	right	over65	tertiary	middle	severe	none
-114	true	female	right	over65	tertiary	low	severe	very_mild
-115	true	female	right	over65	tertiary	middle	severe	very_mild
-116	false	female	right	over25	tertiary	middle	severe	none
-117	false	female	right	over65	tertiary	middle	severe	none
-118	false	female	right	over65	tertiary	middle	severe	none
-119	*	male	right	over65	tertiary	low	severe	none
-120	*	female	right	over65	tertiary	middle	severe	none
+IDnum	alzheimers	sex	hand	age	educ	ses	mmse	cdr	MRINeeded
+1	false	male	right	over65	tertiary	middle	severe	none	false
+2	true	male	right	over65	secondary	*	none	very_mild	true
+3	false	female	right	over65	tertiary	middle	severe	none	false
+4	false	male	right	over65	secondary	upper	severe	none	false
+5	true	male	right	over65	tertiary	*	severe	very_mild	true
+6	false	female	right	over65	tertiary	middle	severe	none	false
+7	true	male	right	over65	secondary	middle	severe	very_mild	true
+8	true	female	right	over65	secondary	middle	severe	very_mild	true
+9	false	female	right	over65	tertiary	middle	severe	none	false
+10	false	female	right	over65	secondary	upper	severe	none	false
+11	true	male	right	over65	tertiary	middle	none	very_mild	true
+12	true	male	right	over65	primary	upper	severe	very_mild	true
+13	false	male	right	over65	secondary	middle	severe	none	false
+14	*	female	right	over65	tertiary	low	severe	none	*
+15	*	male	right	over65	tertiary	low	severe	none	*
+16	true	male	right	over65	tertiary	low	severe	very_mild	true
+17	false	female	right	over25	tertiary	middle	severe	none	false
+18	true	female	right	over65	secondary	upper	none	very_mild	true
+19	true	male	right	over65	secondary	middle	severe	very_mild	true
+20	false	female	right	over65	secondary	middle	severe	none	false
+21	true	male	right	over25	tertiary	middle	none	very_mild	true
+22	false	female	right	over65	secondary	upper	severe	none	false
+23	false	female	right	over25	tertiary	low	severe	none	false
+24	*	female	right	over65	secondary	middle	severe	none	*
+25	true	male	right	over65	secondary	middle	none	very_mild	true
+26	false	female	right	over65	tertiary	low	severe	none	false
+27	false	female	right	over65	secondary	upper	severe	none	false
+28	false	female	right	over65	tertiary	upper	severe	none	false
+29	true	male	right	over65	secondary	upper	severe	very_mild	true
+30	true	female	right	over65	tertiary	middle	severe	very_mild	true
+31	true	male	right	over65	primary	upper	severe	very_mild	true
+32	*	female	right	over65	tertiary	low	severe	none	*
+33	false	female	right	over65	tertiary	middle	severe	none	false
+34	true	female	right	over65	secondary	upper	severe	very_mild	true
+35	true	male	right	over65	tertiary	upper	none	mild	true
+36	false	female	right	over65	tertiary	low	severe	none	false
+37	true	female	right	over65	tertiary	middle	none	very_mild	true
+38	false	female	right	over65	tertiary	middle	severe	none	false
+39	true	male	right	over65	tertiary	low	none	mild	true
+40	false	female	right	over65	tertiary	middle	severe	none	false
+41	true	male	right	over65	secondary	upper	none	very_mild	true
+42	false	female	right	over65	tertiary	low	severe	none	false
+43	false	male	right	over65	tertiary	middle	severe	none	false
+44	false	female	right	over65	tertiary	middle	severe	none	false
+45	*	female	right	over65	tertiary	low	severe	none	*
+46	false	male	right	over25	tertiary	middle	severe	none	false
+47	false	female	right	over65	tertiary	middle	severe	none	false
+48	false	female	right	over65	secondary	middle	severe	none	false
+49	true	male	right	over65	tertiary	middle	severe	very_mild	true
+50	true	male	right	over65	tertiary	upper	severe	very_mild	true
+51	false	male	right	over65	tertiary	low	severe	none	false
+52	false	female	right	over65	tertiary	middle	severe	none	false
+53	true	female	right	over65	secondary	*	severe	very_mild	true
+54	true	female	right	over65	primary	upper	none	mild	true
+55	true	male	right	over25	tertiary	low	severe	mild	true
+56	false	male	right	over65	secondary	upper	severe	none	false
+57	false	female	right	over65	secondary	middle	severe	none	false
+58	false	female	right	over65	tertiary	middle	severe	none	false
+59	false	male	right	over65	tertiary	low	severe	none	false
+60	true	female	right	over65	tertiary	middle	severe	mild	true
+61	false	female	right	over65	tertiary	middle	severe	none	false
+62	true	female	right	over65	primary	upper	severe	very_mild	true
+63	false	female	right	over65	tertiary	middle	severe	none	false
+64	false	male	right	over65	tertiary	middle	severe	none	false
+65	false	male	right	over65	tertiary	low	severe	none	false
+66	true	female	right	over65	secondary	upper	none	very_mild	true
+67	true	male	right	over65	tertiary	middle	severe	very_mild	true
+68	true	female	right	over65	secondary	upper	severe	very_mild	true
+69	false	female	right	over65	primary	upper	severe	none	false
+70	false	female	right	over25	tertiary	middle	severe	none	false
+71	true	female	right	over65	tertiary	low	severe	mild	true
+72	true	male	right	over65	secondary	upper	none	mild	true
+73	true	male	right	over65	secondary	middle	severe	very_mild	true
+74	false	male	right	over65	tertiary	middle	severe	none	false
+75	false	male	right	over65	secondary	upper	severe	none	false
+76	*	female	right	over65	secondary	middle	severe	none	*
+77	false	female	right	over25	tertiary	low	severe	none	false
+78	false	male	right	over65	tertiary	low	severe	none	false
+79	false	female	right	over65	tertiary	middle	severe	none	false
+80	false	male	right	over65	tertiary	middle	severe	none	false
+81	true	male	right	over65	secondary	upper	severe	very_mild	true
+82	true	female	right	over65	secondary	*	severe	very_mild	true
+83	false	female	right	over65	secondary	upper	severe	none	false
+84	false	female	right	over65	tertiary	middle	severe	none	false
+85	true	male	right	over65	tertiary	middle	severe	very_mild	true
+86	*	female	right	over65	tertiary	low	severe	none	*
+87	true	male	right	over65	tertiary	low	severe	very_mild	true
+88	false	male	right	over65	secondary	upper	severe	none	false
+89	true	female	right	over65	secondary	upper	none	mild	true
+90	true	male	right	over65	tertiary	low	severe	very_mild	true
+91	false	male	right	over65	secondary	upper	severe	none	false
+92	true	male	right	over25	secondary	upper	none	very_mild	true
+93	true	female	right	over65	secondary	middle	severe	very_mild	true
+94	true	female	right	over65	tertiary	middle	none	very_mild	true
+95	true	female	right	over65	secondary	*	severe	very_mild	true
+96	true	female	right	over65	secondary	middle	severe	very_mild	true
+97	false	male	right	over65	tertiary	middle	severe	none	false
+98	*	female	right	over65	tertiary	upper	severe	none	*
+99	false	female	right	over65	tertiary	middle	severe	none	false
+100	true	female	right	over65	tertiary	middle	severe	mild	true
+101	false	female	right	over65	secondary	upper	severe	none	false
+102	false	female	right	over65	tertiary	middle	severe	none	false
+103	true	male	right	over65	tertiary	middle	severe	very_mild	true
+104	false	female	right	over65	secondary	middle	severe	none	false
+105	*	male	right	over65	tertiary	low	severe	none	*
+106	false	female	right	over65	tertiary	low	severe	none	false
+107	false	female	right	over65	tertiary	low	severe	none	false
+108	*	female	right	over25	secondary	middle	severe	very_mild	*
+109	*	female	right	over65	secondary	middle	severe	none	*
+110	true	female	right	over65	secondary	upper	severe	very_mild	true
+111	false	male	right	over65	tertiary	middle	severe	none	false
+112	true	male	right	over65	tertiary	middle	severe	very_mild	true
+113	false	female	right	over65	tertiary	middle	severe	none	false
+114	true	female	right	over65	tertiary	low	severe	very_mild	true
+115	true	female	right	over65	tertiary	middle	severe	very_mild	true
+116	false	female	right	over25	tertiary	middle	severe	none	false
+117	false	female	right	over65	tertiary	middle	severe	none	false
+118	false	female	right	over65	tertiary	middle	severe	none	false
+119	*	male	right	over65	tertiary	low	severe	none	*
+120	*	female	right	over65	tertiary	middle	severe	none	*
