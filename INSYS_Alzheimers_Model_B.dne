@@ -1,0 +1,230 @@
+// ~->[DNET-1]->~
+
+// File created by an unlicensed user using Netica 6.04 on Oct 16, 2017 at 15:49:56 UTC.
+
+bnet INTSYS_Alzheimers {
+autoupdate = TRUE;
+whenchanged = 1508168919;
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 9;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	ShowLinkStrengths = 1;
+	windowposn = (0, -6, 1378, 681);
+	resolution = 72;
+	drawingbounds = (1515, 744);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0x00e1e1e1;};
+	NodeSet Nature {BuiltIn = 1; Color = 0x00f8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0x00d3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0x00c8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0x00ffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0x00ffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0x00ffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0x00dee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0x00f0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0x00ffffff;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		};
+	};
+
+node sex {
+	discrete = TRUE;
+	states = (male, female);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = ();
+	probs = 
+		// male         female       
+		  (0.4016393,   0.5983607);
+	numcases = 122;
+	title = "Sex";
+	whenchanged = 1508087083;
+	visual V1 {
+		center = (150, 48);
+		height = 8;
+		};
+	};
+
+node hand {
+	discrete = TRUE;
+	states = (left, right);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = ();
+	probs = 
+		// left         right        
+		  (0.008196721, 0.9918033);
+	numcases = 122;
+	title = "Handedness";
+	whenchanged = 1508087083;
+	visual V1 {
+		center = (306, 48);
+		height = 6;
+		};
+	};
+
+node age {
+	discrete = TRUE;
+	states = (Under25, Over25, Over65);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = ();
+	probs = 
+		// Under25      Over25       Over65       
+		  (0.008130081, 0.08943089,  0.902439);
+	numcases = 123;
+	title = "Age";
+	whenchanged = 1508087083;
+	visual V1 {
+		center = (468, 54);
+		height = 7;
+		};
+	};
+
+node alzheimers {
+	discrete = TRUE;
+	states = (true, false);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (hand, sex, age);
+	probs = 
+		// true         false         // hand  sex    age     
+		  (0.5,         0.5,          // left  male   Under25 
+		   0.5,         0.5,          // left  male   Over25  
+		   0.5,         0.5,          // left  male   Over65  
+		   0.5,         0.5,          // left  female Under25 
+		   0.5,         0.5,          // left  female Over25  
+		   0.5,         0.5,          // left  female Over65  
+		   0.5,         0.5,          // right male   Under25 
+		   0.6666667,   0.3333333,    // right male   Over25  
+		   0.5813953,   0.4186046,    // right male   Over65  
+		   0.5,         0.5,          // right female Under25 
+		   0.1428571,   0.8571429,    // right female Over25  
+		   0.3898305,   0.6101695);   // right female Over65  ;
+	numcases = 
+		                 // hand  sex    age     
+		  (2,            // left  male   Under25 
+		   2,            // left  male   Over25  
+		   2,            // left  male   Over65  
+		   2,            // left  female Under25 
+		   2,            // left  female Over25  
+		   2,            // left  female Over65  
+		   2,            // right male   Under25 
+		   6,            // right male   Over25  
+		   43,           // right male   Over65  
+		   2,            // right female Under25 
+		   7,            // right female Over25  
+		   59);          // right female Over65  ;
+	title = "Alzheimers";
+	whenchanged = 1508087083;
+	visual V1 {
+		center = (306, 366);
+		height = 5;
+		};
+	};
+
+node educ {
+	discrete = TRUE;
+	states = (none, primary, secondary, tertiary);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = ();
+	probs = 
+		// none         primary      secondary    tertiary     
+		  (0.008064516, 0.0483871,   0.3387097,   0.6048387);
+	numcases = 124;
+	title = "Education Level";
+	whenchanged = 1508087083;
+	visual V1 {
+		center = (654, 60);
+		height = 1;
+		};
+	};
+
+node ses {
+	discrete = TRUE;
+	states = (low, middle, upper);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (educ);
+	probs = 
+		// low          middle       upper         // educ      
+		  (0.3333333,   0.3333333,   0.3333333,    // none      
+		   0.125,       0.125,       0.75,         // primary   
+		   0.025,       0.425,       0.55,         // secondary 
+		   0.3421053,   0.5921053,   0.06578948);  // tertiary  ;
+	numcases = 
+		                 // educ      
+		  (3,            // none      
+		   8,            // primary   
+		   40,           // secondary 
+		   76);          // tertiary  ;
+	title = "Socioeconomic Status";
+	whenchanged = 1508087083;
+	visual V1 {
+		center = (654, 168);
+		height = 2;
+		};
+	};
+
+node mmse {
+	discrete = TRUE;
+	states = (none, mild, severe);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (ses);
+	probs = 
+		// none         mild         severe        // ses    
+		  (0.07142857,  0.03571429,  0.8928571,    // low    
+		   0.0952381,   0.01587302,  0.8888889,    // middle 
+		   0.2727273,   0.03030303,  0.6969697);   // upper  ;
+	numcases = 
+		                 // ses    
+		  (28,           // low    
+		   63,           // middle 
+		   33);          // upper  ;
+	title = "Mini-Mental State Exam";
+	whenchanged = 1508087083;
+	visual V1 {
+		center = (654, 264);
+		height = 3;
+		};
+	};
+
+node cdr {
+	discrete = TRUE;
+	states = (none, severe, very_mild, mild);
+	kind = NATURE;
+	chance = CHANCE;
+	parents = (alzheimers, mmse);
+	probs = 
+		// none         severe       very mild    mild          // alzheimers mmse   
+		  (0.05263158,  0.05263158,  0.5789474,   0.3157895,    // true       none   
+		   0.25,        0.25,        0.25,        0.25,         // true       mild   
+		   0.02631579,  0.02631579,  0.8157895,   0.131579,     // true       severe 
+		   0.25,        0.25,        0.25,        0.25,         // false      none   
+		   0.25,        0.25,        0.25,        0.25,         // false      mild   
+		   0.9516129,   0.01612903,  0.01612903,  0.01612903);  // false      severe ;
+	numcases = 
+		                 // alzheimers mmse   
+		  (19,           // true       none   
+		   4,            // true       mild   
+		   38,           // true       severe 
+		   4,            // false      none   
+		   4,            // false      mild   
+		   62);          // false      severe ;
+	title = "Clinical Dementia Rating";
+	whenchanged = 1508087083;
+	visual V1 {
+		center = (654, 366);
+		height = 4;
+		};
+	};
+};
